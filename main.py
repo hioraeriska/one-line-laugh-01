@@ -15,6 +15,7 @@ def main() -> None:
     out_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
     out_dir.mkdir(parents=True, exist_ok=True)
     text = LINE.strip()
+    # Bounty gate: the line must be 1-200 characters (139 here).
     if not 1 <= len(text) <= 200:
         raise SystemExit(f"line is {len(text)} chars, must be 1-200")
     (out_dir / "entry.txt").write_text(text, encoding="utf-8")
